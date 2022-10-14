@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from women.views import *
 from django.urls import include
-from mans.views import * 
+from women.views import *
+from mens.views import *
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('women/', include("women.urls")),
-    path('mans/', include('mans.urls'))
+    path('', include("women.urls")),
+    path("mens/", include("mens.urls")),
 ]
+
+from django.conf.urls.static import static
+from bruhsite import settings
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+handler404 = pageNotFound

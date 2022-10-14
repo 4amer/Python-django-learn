@@ -2,6 +2,6 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', native),
-    path('bruh/', bruh)
+    path('', bruh),
+    path('into/<int:Br>', into)
 ]
