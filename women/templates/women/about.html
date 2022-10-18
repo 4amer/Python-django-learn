@@ -1,0 +1,17 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<p>Содержимое страницы</p>
+<a href="{% url 'home' %}">asdasd</a>
+<ul>
+    {% for p in posts %}
+    <li>
+        {{ p.title | truncatewords:1}}
+        {{ p.content }}
+    </li>
+    <p><a href="{{ p.get_absolute_url }}">ДА</a></p>
+    {% endfor %}
+</ul>
+
+{% endblock %}
